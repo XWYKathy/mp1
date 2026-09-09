@@ -1,1 +1,478 @@
-/* Your SCSS here. */
+$dark: #1f2937;
+$light: #f5f5f5;
+$white: #ffffff;
+$accent: #4f46e5;
+$nav-large: 90px;
+$nav-small: 60px;
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- General ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: $nav-large;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $dark;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+/* ---------- Navbar ---------- */
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $nav-large;
+    @include flex-center;
+    background: $dark;
+    z-index: 1000;
+    transition: height 0.3s ease;
+
+    .nav-container a {
+        transition:
+            font-size 0.3s ease,
+            color 0.3s ease;
+    }
+
+    &.small {
+        height: $nav-small;
+
+        .nav-container a {
+            font-size: 14px;
+        }
+    }
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    a {
+        position: relative;
+        color: $white;
+        text-decoration: none;
+        font-size: 18px;
+
+        &.active {
+            color: $accent;
+        }
+
+        &.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 2px;
+            background: $accent;
+        }
+    }
+}
+
+/* ---------- Hero / Background Video ---------- */
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    @include flex-center;
+    overflow: hidden;
+}
+
+/* The video fills the entire hero section */
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Dark layer over video so text is easier to read */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $white;
+
+    h1 {
+        font-size: 60px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+}
+
+/* ---------- General Sections ---------- */
+
+section {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+
+    &:nth-child(even) {
+        background: $light;
+    }
+}
+
+.section-content {
+    width: 90%;
+    max-width: 1200px;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+/* ---------- Multi-column Sections ---------- */
+
+.about-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.about-grid > div,
+.project-card {
+    padding: 30px;
+    background: $white;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+
+    p {
+        line-height: 1.6;
+    }
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        flex: 1;
+    }
+}
+
+.modal-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    color: $white;
+    background: $accent;
+    cursor: pointer;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+
+    &:hover {
+        background: #3730a3;
+        transform: translateY(-2px);
+    }
+}
+
+/* ---------- Carousel ---------- */
+
+.carousel {
+    position: relative;
+    margin-top: 40px;
+    min-height: 350px;
+    @include flex-center;
+    overflow: hidden;
+    background: #d1d5db;
+}
+
+.carousel-slides {
+    width: 80%;
+}
+
+.slide {
+    min-height: 300px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 70px;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 16px;
+        font-size: 34px;
+    }
+
+    p {
+        max-width: 760px;
+        margin-bottom: 0;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    &.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+    }
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: $white;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Modal ---------- */
+
+.modal {
+    @include flex-center;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+
+    &.show {
+        display: flex;
+    }
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 620px;
+    padding: 40px;
+    background: $white;
+    text-align: center;
+    border-radius: 8px;
+    animation: modalFadeIn 0.3s ease;
+
+    p {
+        line-height: 1.7;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ---------- Fixed Background Image ---------- */
+
+/*
+The hero uses a video, but the assignment separately requires
+a fixed-position background image.
+So the contact section is used for that requirement.
+*/
+
+#contact {
+    background-image:
+        linear-gradient(
+            rgba(31, 41, 55, 0.75),
+            rgba(31, 41, 55, 0.75)
+        ),
+        url("../assets/image.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: $white;
+}
+
+.contact-email {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 35px;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        color: $white;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        transition:
+            background 0.3s ease,
+            transform 0.3s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-color: currentColor;
+    flex: 0 0 auto;
+}
+
+.icon-github {
+    mask: url("../assets/github.svg") center / contain no-repeat;
+    -webkit-mask: url("../assets/github.svg") center / contain no-repeat;
+}
+
+.icon-linkedin {
+    mask: url("../assets/linkedin.svg") center / contain no-repeat;
+    -webkit-mask: url("../assets/linkedin.svg") center / contain no-repeat;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: $white;
+    background: $dark;
+
+    p {
+        margin: 0;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 767px) {
+    .about-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-container {
+        gap: 15px;
+
+        a {
+            font-size: 14px;
+        }
+    }
+
+    .hero-content {
+        h1 {
+            font-size: 42px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .carousel-slides {
+        width: 75%;
+    }
+
+    .carousel-arrow {
+        width: 42px;
+        height: 42px;
+        font-size: 26px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}

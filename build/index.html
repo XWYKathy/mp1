@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kathy's Portfolio</title>
+</head>
+
+<body>
+
+    <header id="home">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="6c9a40e8e4fe952c6a0e.mp4" type="video/mp4">
+        </video>
+    
+        <div class="hero-overlay"></div>
+    
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    
+        <div class="hero-content">
+            <h1>Wenyi (Kathy) Xie</h1>
+            <p>Computer Vision • AI Agents • Full-Stack AI Systems</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <div class="section-content">
+                <h2>About Me</h2>
+
+                <div class="about-grid">
+                    <div>
+                        <h3>Education</h3>
+                        <p>
+                            MCS student at the University of Illinois
+                            Urbana-Champaign, with a 3.9/4.0 GPA and an
+                            expected graduation date of December 2026.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Focus</h3>
+                        <p>
+                            I build end-to-end AI systems across computer
+                            vision, large language models, retrieval workflows,
+                            and tool-augmented AI agents.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Technical Stack</h3>
+                        <p>
+                            Python, Java, C++, SQL, JavaScript, PyTorch,
+                            TensorFlow, OpenCV, FastAPI, Spring Boot, Node.js,
+                            AWS, and GCP.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-content">
+                <h2>Projects</h2>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>GlucoAgent</h3>
+                        <p>
+                            A tool-augmented LLM agent for analyzing continuous
+                            glucose monitoring data through grounded natural
+                            language interaction.
+                        </p>
+                        <button
+                            class="modal-button"
+                            data-modal-title="GlucoAgent"
+                            data-modal-body="Built a Claude-powered agent workflow that coordinates structured data retrieval, statistical analysis, and personalized report generation. The system separates deterministic computation from LLM explanation to reduce hallucination risk while supporting multi-turn exploration of longitudinal health records."
+                        >
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Plant Disease Classifier</h3>
+                        <p>
+                            A robust computer vision system using transfer
+                            learning and interpretability to classify plant
+                            disease images.
+                        </p>
+                        <button
+                            class="modal-button"
+                            data-modal-title="Plant Disease Classifier"
+                            data-modal-body="Built an EfficientNetB0 transfer learning pipeline that achieved 97.8% test accuracy. Added robustness experiments for blur, brightness, rotation, occlusion, and background noise, then used Grad-CAM to explain model predictions. The full-stack app used Next.js, FastAPI, and PostgreSQL."
+                        >
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>CodeMentor AI</h3>
+                        <p>
+                            A multi-LLM programming tutor that adapts coding
+                            guidance to students' progress and learning
+                            behavior.
+                        </p>
+                        <button
+                            class="modal-button"
+                            data-modal-title="CodeMentor AI"
+                            data-modal-body="Developed a React and Django system for real-time tutoring workflows. Integrated ChatGLM, Yi-Large, Yi-Lightning, and DeepSeek-V3 through dynamic model selection to support code explanation, debugging, completion, and personalized learning guidance."
+                        >
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="section-content">
+                <h2>Gallery</h2>
+
+                <div class="carousel">
+                    <button class="carousel-arrow prev">&#10094;</button>
+
+                    <div class="carousel-slides">
+                        <div class="slide">
+                            <h3>Kodiak Sciences</h3>
+                            <p>
+                                Machine learning engineering for retinal
+                                recognition, pupil segmentation, and AI-powered
+                                knowledge retrieval workflows.
+                            </p>
+                        </div>
+                        <div class="slide">
+                            <h3>VMware China R&amp;D</h3>
+                            <p>
+                                End-to-end LLM system development, including
+                                dataset engineering, fine-tuning, and
+                                domain-specific evaluation.
+                            </p>
+                        </div>
+                        <div class="slide">
+                            <h3>Publication</h3>
+                            <p>
+                                W. Xie, J. Li, Y . Mu, H. Zhang, S. Zhao and X. Zheng,
+                                “The Power of Personalized Datasets: Advancing Chinese Composition
+                                Writing for Elementary School through Targeted Model Fine-Tuning,
+                                ” IALP 2024, Hohhot, China, pp. 344-349. Also
+                                accepted to the International Journal of Asian Language Processing (Dec 2024).
+                            </p>
+                        </div>
+                    </div>
+
+                    <button class="carousel-arrow next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-content">
+                <h2>Contact</h2>
+
+                <p class="contact-email">
+                    xiewenyi.kathy@gmail.com
+                </p>
+
+                <div class="social-icons">
+                    <a
+                        href="https://github.com/XWYKathy"
+                        aria-label="GitHub profile"
+                    >
+                        <span class="social-icon icon-github"></span>
+                        <span>GitHub</span>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/kathyxie-7b0313289"
+                        aria-label="LinkedIn profile"
+                    >
+                        <span class="social-icon icon-linkedin"></span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kathy Xie</p>
+    </footer>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Project Details</h2>
+            <p>Choose a project to see more details.</p>
+        </div>
+    </div>
+
+<script defer src="bundle.js"></script></body>
+</html>
